@@ -1,9 +1,9 @@
-const GeometryObject = require('./Geometry/Object.js');
+const GeometryPosition = require('./Geometry/Position.js');
 
 const storage = new WeakMap();
 
 /**
- * Map GeometryObject extends
+ * Map GeometryPosition extends
  *
  * @class Mapper
  */
@@ -11,12 +11,12 @@ class Mapper {
 	/**
 	 * Creates an instance of Mapper
 	 *
-	 * @param    ...{GeometryObject}
+	 * @param    ...{GeometryPosition}
 	 * @memberof Mapper
 	 */
 	constructor(...types) {
 		const invalid = types.filter(
-			(type) => !(type && type.prototype instanceof GeometryObject)
+			(type) => !(type && type.prototype instanceof GeometryPosition)
 		);
 
 		if (invalid.length) {
