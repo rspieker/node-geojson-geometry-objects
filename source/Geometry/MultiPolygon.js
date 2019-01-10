@@ -1,15 +1,42 @@
 const GeometryPosition = require('./Position.js');
 const GeometryPolygon = require('./Polygon.js');
 
+/**
+ * GeoJSON MultiPolygon
+ *
+ * @class GeometryMultiPolygon
+ * @extends {GeometryPosition}
+ */
 class GeometryMultiPolygon extends GeometryPosition {
+	/**
+	 * Creates an instance of GeometryMultiPolygon
+	 *
+	 * @param    {...GeometryPosition} polygons
+	 * @memberof GeometryMultiPolygon
+	 */
 	constructor(...polygons) {
 		super(...polygons.map((poly) => GeometryPolygon.from(poly)));
 	}
 
+	/**
+	 * Obtain the type
+	 *
+	 * @readonly
+	 * @static
+	 * @memberof GeometryMultiPolygon
+	 */
 	static get type() {
 		return 'MultiPolygon';
 	}
 
+	/**
+	 * Obtain the mappers used to validate and/or constructs
+	 * (used by the static .from method)
+	 *
+	 * @readonly
+	 * @static
+	 * @memberof GeometryMultiPolygon
+	 */
 	static get mapping() {
 		return super.mapping.concat([
 			{

@@ -1,15 +1,42 @@
 const GeometryPosition = require('./Position.js');
 const LinearRing = require('./LinearRing.js');
 
+/**
+ * GeoJSON Polygon
+ *
+ * @class GeometryPolygon
+ * @extends {GeometryPosition}
+ */
 class GeometryPolygon extends GeometryPosition {
+	/**
+	 * Creates an instance of GeometryPolygon
+	 *
+	 * @param    ...rings
+	 * @memberof GeometryPolygon
+	 */
 	constructor(...rings) {
 		super(...rings.map((ring) => LinearRing.from(ring)));
 	}
 
+	/**
+	 * Obtain the type
+	 *
+	 * @readonly
+	 * @static
+	 * @memberof GeometryPolygon
+	 */
 	static get type() {
 		return 'Polygon';
 	}
 
+	/**
+	 * Obtain the mappers used to validate and/or constructs
+	 * (used by the static .from method)
+	 *
+	 * @readonly
+	 * @static
+	 * @memberof GeometryPolygon
+	 */
 	static get mapping() {
 		return super.mapping.concat([
 			{

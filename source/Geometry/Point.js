@@ -1,6 +1,18 @@
 const GeometryPosition = require('./Position.js');
 
+/**
+ * Geometry Point
+ *
+ * @class GeometryPoint
+ * @extends {GeometryPosition}
+ */
 class GeometryPoint extends GeometryPosition {
+	/**
+	 * Creates an instance of GeometryPoint
+	 *
+	 * @param    Object { longitude, latitude, altitude }
+	 * @memberof GeometryPoint
+	 */
 	constructor({ longitude, latitude, altitude } = {}) {
 		super(
 			...[longitude, latitude].concat(
@@ -9,24 +21,48 @@ class GeometryPoint extends GeometryPosition {
 		);
 	}
 
+	/**
+	 * Obtain the latitude
+	 *
+	 * @readonly
+	 * @memberof GeometryPoint
+	 */
 	get latitude() {
 		const [, latitude] = this.coordinates;
 
 		return latitude;
 	}
 
+	/**
+	 * Obtain the longitude
+	 *
+	 * @readonly
+	 * @memberof GeometryPoint
+	 */
 	get longitude() {
 		const [longitude] = this.coordinates;
 
 		return longitude;
 	}
 
+	/**
+	 * Obtain the altitude (if any was provided, undefined otherwise)
+	 *
+	 * @readonly
+	 * @memberof GeometryPoint
+	 */
 	get altitude() {
 		const [, , altitude] = this.coordinates;
 
 		return altitude;
 	}
 
+	/**
+	 * Convert the Point to the JSON representation
+	 *
+	 * @returns  Object { type, longitude, latitude [, altitude] }
+	 * @memberof GeometryPoint
+	 */
 	toJSON() {
 		const { type, coordinates } = this;
 		const [longitude, latitude, altitude] = coordinates;
@@ -35,16 +71,37 @@ class GeometryPoint extends GeometryPosition {
 		return typeof altitude === 'undefined' ? basic : { ...basic, altitude };
 	}
 
+	/**
+	 * Convert the Point to the BSON representation
+	 *
+	 * @returns  Object { type, coordinates }
+	 * @memberof GeometryPoint
+	 */
 	toBSON() {
 		const { type, coordinates } = this;
 
 		return { type, coordinates };
 	}
 
+	/**
+	 * Obtain the type
+	 *
+	 * @readonly
+	 * @static
+	 * @memberof GeometryPoint
+	 */
 	static get type() {
 		return 'Point';
 	}
 
+	/**
+	 * Obtain the mappers used to validate and/or constructs
+	 * (used by the static .from method)
+	 *
+	 * @readonly
+	 * @static
+	 * @memberof GeometryPoint
+	 */
 	static get mapping() {
 		return super.mapping.concat([
 			{

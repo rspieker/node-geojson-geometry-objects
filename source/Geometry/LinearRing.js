@@ -1,11 +1,34 @@
 const GeometryPoint = require('./Point.js');
 const GeometryLineString = require('./LineString.js');
 
+/**
+ * Linear Ring object, as used by GeoJSON Polygon
+ * (this is not a GeoJSON object in itself, use GeometryLineString)
+ *
+ * @class LinearRing
+ * @extends {GeometryLineString}
+ */
 class LinearRing extends GeometryLineString {
+	/**
+	 * Obtain the type (used by mapping not represented in as GeoJSON, JSON
+	 * or BSON type)
+	 *
+	 * @readonly
+	 * @static
+	 * @memberof LineString
+	 */
 	static get type() {
 		return 'LinearRing';
 	}
 
+	/**
+	 * Obtain the mappers used to validate and/or constructs
+	 * (used by the static .from method)
+	 *
+	 * @readonly
+	 * @static
+	 * @memberof LinearRing
+	 */
 	static get mapping() {
 		const compare = (list) => {
 			const { coordinates: first } = GeometryPoint.from(list[0]);

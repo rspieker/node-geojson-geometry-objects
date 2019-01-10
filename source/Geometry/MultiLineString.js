@@ -1,15 +1,42 @@
 const GeometryPosition = require('./Position.js');
 const GeometryLineString = require('./LineString.js');
 
+/**
+ * GeoJSON MultiLineString
+ *
+ * @class GeometryMultiLineString
+ * @extends {GeometryPosition}
+ */
 class GeometryMultiLineString extends GeometryPosition {
+	/**
+	 * Creates an instance of GeometryMultiLineString
+	 *
+	 * @param    {...GeometryPosition} lines
+	 * @memberof GeometryMultiLineString
+	 */
 	constructor(...lines) {
 		super(...lines.map((line) => GeometryLineString.from(line)));
 	}
 
+	/**
+	 * Obtain the type
+	 *
+	 * @readonly
+	 * @static
+	 * @memberof GeometryMultiLineString
+	 */
 	static get type() {
 		return 'MultiLineString';
 	}
 
+	/**
+	 * Obtain the mappers used to validate and/or constructs
+	 * (used by the static .from method)
+	 *
+	 * @readonly
+	 * @static
+	 * @memberof GeometryMultiLineString
+	 */
 	static get mapping() {
 		return super.mapping.concat([
 			{

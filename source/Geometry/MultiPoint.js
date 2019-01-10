@@ -1,15 +1,42 @@
 const GeometryPosition = require('./Position.js');
 const GeometryPoint = require('./Point.js');
 
+/**
+ * GeoJSON MultiPoint
+ *
+ * @class GeometryMultiPoint
+ * @extends {GeometryPosition}
+ */
 class GeometryMultiPoint extends GeometryPosition {
+	/**
+	 * Creates an instance of GeometryMultiPoint
+	 *
+	 * @param    {...GeometryPosition} points
+	 * @memberof GeometryMultiPoint
+	 */
 	constructor(...points) {
 		super(...points.map((point) => GeometryPoint.from(point)));
 	}
 
+	/**
+	 * Obtain the type
+	 *
+	 * @readonly
+	 * @static
+	 * @memberof GeometryMultiPoint
+	 */
 	static get type() {
 		return 'MultiPoint';
 	}
 
+	/**
+	 * Obtain the mappers used to validate and/or constructs
+	 * (used by the static .from method)
+	 *
+	 * @readonly
+	 * @static
+	 * @memberof GeometryMultiPoint
+	 */
 	static get mapping() {
 		return super.mapping.concat([
 			{

@@ -16,21 +16,51 @@ const mapper = new Mapper(
 	GeometryPoint
 );
 
+/**
+ * GeoJSON GeometryCollection
+ *
+ * @class GeometryCollection
+ * @extends {GeometryPosition}
+ */
 class GeometryCollection extends GeometryPosition {
+	/**
+	 * Creates an instance of GeometryCollection
+	 *
+	 * @param    {...GeometryPosition} geometries
+	 * @memberof GeometryCollection
+	 */
 	constructor(...geometries) {
 		super(...geometries.map((geometry) => mapper.map(geometry)));
 	}
 
+	/**
+	 * Obtain the geometries
+	 *
+	 * @readonly
+	 * @memberof GeometryCollection
+	 */
 	get geometries() {
 		return super.coordinates;
 	}
 
+	/**
+	 * Convert the GeometryCollection to the JSON representation
+	 *
+	 * @returns  Object { type, geometries }
+	 * @memberof GeometryCollection
+	 */
 	toJSON() {
 		const { type, coordinates: geometries } = super.toJSON();
 
 		return { type, geometries };
 	}
 
+	/**
+	 * Convert the GeometryCollection to the BSON representation
+	 *
+	 * @returns  Object { type, coordinates }
+	 * @memberof GeometryCollection
+	 */
 	toBSON() {
 		const { type, coordinates } = this;
 		const geometries = coordinates.map((coordinate) => coordinate.toBSON());
@@ -38,10 +68,25 @@ class GeometryCollection extends GeometryPosition {
 		return { type, geometries };
 	}
 
+	/**
+	 * Obtain the type
+	 *
+	 * @readonly
+	 * @static
+	 * @memberof GeometryCollection
+	 */
 	static get type() {
 		return 'GeometryCollection';
 	}
 
+	/**
+	 * Obtain the mappers used to validate and/or constructs
+	 * (used by the static .from method)
+	 *
+	 * @readonly
+	 * @static
+	 * @memberof GeometryCollection
+	 */
 	static get mapping() {
 		return super.mapping.concat([
 			{
