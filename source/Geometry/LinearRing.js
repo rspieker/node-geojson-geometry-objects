@@ -58,7 +58,7 @@ class LinearRing extends GeometryLineString {
 					Array.isArray(value) &&
 					value.length > 3 &&
 					value.filter((val) => GeometryPoint.valid(val)).length ===
-					value.length &&
+						value.length &&
 					compare(value),
 				factory: (value) => new this(...value)
 			}
