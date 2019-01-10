@@ -1,4 +1,4 @@
-const GeometryObject = require('./Object.js');
+const GeometryPosition = require('./Position.js');
 const GeometryLineString = require('./LineString.js');
 const GeometryMultiLineString = require('./MultiLineString.js');
 const GeometryMultiPoint = require('./MultiPoint.js');
@@ -16,11 +16,9 @@ const mapper = new Mapper(
 	GeometryPoint
 );
 
-class GeometryCollection extends GeometryObject {
+class GeometryCollection extends GeometryPosition {
 	constructor(...geometries) {
-		super({
-			coordinates: geometries.map((geometry) => mapper.map(geometry))
-		});
+		super(...geometries.map((geometry) => mapper.map(geometry)));
 	}
 
 	get geometries() {

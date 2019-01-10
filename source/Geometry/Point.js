@@ -1,14 +1,12 @@
-const GeometryObject = require('./Object.js');
+const GeometryPosition = require('./Position.js');
 
-class GeometryPoint extends GeometryObject {
+class GeometryPoint extends GeometryPosition {
 	constructor({ longitude, latitude, altitude } = {}) {
-		const coordinates = [longitude, latitude];
-
-		if (altitude !== undefined) {
-			coordinates.push(altitude);
-		}
-
-		super({ coordinates });
+		super(
+			...[longitude, latitude].concat(
+				altitude !== undefined ? altitude : []
+			)
+		);
 	}
 
 	get latitude() {

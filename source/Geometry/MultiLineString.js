@@ -1,11 +1,9 @@
-const GeometryObject = require('./Object.js');
+const GeometryPosition = require('./Position.js');
 const GeometryLineString = require('./LineString.js');
 
-class GeometryMultiLineString extends GeometryObject {
+class GeometryMultiLineString extends GeometryPosition {
 	constructor(...lines) {
-		super({
-			coordinates: lines.map((line) => GeometryLineString.from(line))
-		});
+		super(...lines.map((line) => GeometryLineString.from(line)));
 	}
 
 	static get type() {

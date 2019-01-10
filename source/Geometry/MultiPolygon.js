@@ -1,11 +1,9 @@
-const GeometryObject = require('./Object.js');
+const GeometryPosition = require('./Position.js');
 const GeometryPolygon = require('./Polygon.js');
 
-class GeometryMultiPolygon extends GeometryObject {
+class GeometryMultiPolygon extends GeometryPosition {
 	constructor(...polygons) {
-		super({
-			coordinates: polygons.map((poly) => GeometryPolygon.from(poly))
-		});
+		super(...polygons.map((poly) => GeometryPolygon.from(poly)));
 	}
 
 	static get type() {

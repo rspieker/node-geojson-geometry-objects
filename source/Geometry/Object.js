@@ -1,10 +1,4 @@
-const storage = new WeakMap();
-
 class GeometryObject {
-	constructor(values) {
-		storage.set(this, values);
-	}
-
 	get type() {
 		const { constructor } = this;
 		const { type } = constructor;
@@ -12,28 +6,8 @@ class GeometryObject {
 		return type;
 	}
 
-	get coordinates() {
-		const { coordinates } = storage.get(this);
-
-		return coordinates;
-	}
-
 	static get type() {
 		return 'Object';
-	}
-
-	toBSON() {
-		const { type, coordinates: items } = this;
-		const coordinates = items.map((item) => item.toBSON().coordinates);
-
-		return { type, coordinates };
-	}
-
-	toJSON() {
-		const { type, coordinates: items } = this;
-		const coordinates = items.map((item) => item.toJSON());
-
-		return { type, coordinates };
 	}
 
 	static get mapping() {

@@ -1,9 +1,9 @@
-const GeometryObject = require('./Object.js');
+const GeometryPosition = require('./Position.js');
 const LinearRing = require('./LinearRing.js');
 
-class GeometryPolygon extends GeometryObject {
+class GeometryPolygon extends GeometryPosition {
 	constructor(...rings) {
-		super({ coordinates: rings.map((ring) => LinearRing.from(ring)) });
+		super(...rings.map((ring) => LinearRing.from(ring)));
 	}
 
 	static get type() {

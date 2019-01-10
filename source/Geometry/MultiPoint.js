@@ -1,11 +1,9 @@
-const GeometryObject = require('./Object.js');
+const GeometryPosition = require('./Position.js');
 const GeometryPoint = require('./Point.js');
 
-class GeometryMultiPoint extends GeometryObject {
+class GeometryMultiPoint extends GeometryPosition {
 	constructor(...points) {
-		super({
-			coordinates: points.map((point) => GeometryPoint.from(point))
-		});
+		super(...points.map((point) => GeometryPoint.from(point)));
 	}
 
 	static get type() {
