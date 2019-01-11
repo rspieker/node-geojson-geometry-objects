@@ -68,7 +68,9 @@ class GeometryPoint extends GeometryPosition {
 		const [longitude, latitude, altitude] = coordinates;
 		const basic = { type, latitude, longitude };
 
-		return typeof altitude === 'undefined' ? basic : { ...basic, altitude };
+		return typeof altitude === 'undefined'
+			? basic
+			: Object.assign(basic, { altitude });
 	}
 
 	/**

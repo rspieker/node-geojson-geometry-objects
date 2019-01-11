@@ -78,8 +78,8 @@ describe('Type', () => {
 				bson.push(current.toBSON());
 			});
 
-			expect(collection.toJSON()).to.equal({ ...base, geometries: json });
-			expect(collection.toBSON()).to.equal({ ...base, geometries: bson });
+			expect(collection.toJSON()).to.equal(Object.assign(base, { geometries: json });
+			expect(collection.toBSON()).to.equal(Object.assign(base, { geometries: bson });
 
 			next();
 		});

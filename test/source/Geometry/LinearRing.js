@@ -15,8 +15,8 @@ describe('Type', () => {
 				{ type: 'Point', longitude: 0, latitude: 0 }
 			]
 		};
-		const bson2 = { ...bson, type: 'LineString' };
-		const json2 = { ...json, type: 'LineString' };
+		const bson2 = Object.assign(bson, { type: 'LineString' });
+		const json2 = Object.assign(json, { type: 'LineString' });
 
 		each`
 			note                     | value
