@@ -32,6 +32,17 @@ class GeometryPosition extends GeometryObject {
 	}
 
 	/**
+	 * Obtain the type
+	 *
+	 * @readonly
+	 * @static
+	 * @memberof GeometryPosition
+	 */
+	static get type() {
+		return 'Position';
+	}
+
+	/**
 	 * Obtain the coordinates stored with the Position
 	 *
 	 * @readonly
