@@ -12,7 +12,7 @@ This module was created to easily change between the GeoJSON format and a JSON f
 The GeoJSON Geometry Objects module is a scoped package, which means the scope has to be used during both installation and use of the module.
 
 ```
-$ npm install --save @konfirm/geojson-geometry-objects
+$ npm install --save geojson-geometry-objects
 ```
 
 # Usage
@@ -20,7 +20,7 @@ $ npm install --save @konfirm/geojson-geometry-objects
 Like the installation, the scope also must be specified when using the module
 
 ```js
-const GeoJSON = require('@konfirm/geojson-geometry-object');
+const GeoJSON = require('geojson-geometry-object');
 const point = GeoJSON.Point.from([5.9117305, 51.9748942]);
 const same = GeoJSON.Point.from({
 	latitude: 51.9748942,
@@ -142,7 +142,7 @@ The `Mapper` is a simple object which accepts the types you wish to map into Geo
 
 # License
 
-MIT License Copyright (c) 2019 (Konfirm) Rogier Spieker
+MIT License Copyright (c) 2019 Rogier Spieker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

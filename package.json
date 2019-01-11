@@ -1,26 +1,26 @@
 {
-  "name": "geojson",
-  "version": "1.0.0",
-  "description": "Tagged template literal to iterate over markdown style tables as objects.",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "lab -vclr"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/konfirm/geojson-geometry-objects.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/konfirm/geojson-geometry-objects/issues"
-  },
-  "homepage": "https://github.com/konfirm/geojson-geometry-objects#readme",
-  "devDependencies": {
-    "@konfirm/labrat": "^1.4.0"
-  }
+	"name": "geojson-geometry-objects",
+	"version": "0.0.0",
+	"description": "GeoJSON Geometry Objects, easily turn into BSON/JSON representation",
+	"main": "index.js",
+	"directories": {
+		"test": "test"
+	},
+	"scripts": {
+		"test": "lab -vclr"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rspieker/node-geojson-geometry-objects.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/rspieker/node-geojson-geometry-objects/issues"
+	},
+	"homepage": "https://github.com/rspieker/node-geojson-geometry-objects#readme",
+	"devDependencies": {
+		"@konfirm/labrat": "^1.4.0"
+	}
 }
