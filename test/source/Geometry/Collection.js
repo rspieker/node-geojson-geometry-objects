@@ -55,10 +55,11 @@ describe('Type', () => {
 			]}
 		`('supports $note ($catalog)', ({ catalog, types }, next) => {
 			const base = { type: 'GeometryCollection' };
-			const collection = GeometryCollection.from({
-				...base,
-				geometries: types.map((type) => type[catalog])
-			});
+			const collection = GeometryCollection.from(
+				Object.assign(base, {
+					geometries: types.map((type) => type[catalog])
+				})
+			);
 			const json = [];
 			const bson = [];
 
