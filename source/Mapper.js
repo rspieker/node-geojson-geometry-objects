@@ -1,4 +1,5 @@
 const GeometryPosition = require('./Geometry/Position.js');
+const GeometryTypeError = require('./Geometry/TypeError.js');
 
 const storage = new WeakMap();
 
@@ -20,22 +21,7 @@ class Mapper {
 		);
 
 		if (invalid.length) {
-			const names = invalid
-				.map((type) => {
-					const typed = Array.isArray(type)
-						? 'array'
-						: type === null
-						? 'null'
-						: typeof type;
-					const name = /^(?:function|object)/.test(typed)
-						? type.name || JSON.stringify(type)
-						: typed;
-
-					return name;
-				})
-				.filter((name, index, all) => all.indexOf(name) === index);
-
-			throw new Error(`Cannot map type ${names}`);
+			throw new GeometryTypeError('Cannot map type', invalid);
 		}
 
 		storage.set(this, { types });

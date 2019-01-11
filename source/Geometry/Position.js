@@ -1,4 +1,5 @@
 const GeometryObject = require('./Object.js');
+const GeometryTypeError = require('./TypeError.js');
 
 const storage = new WeakMap();
 
@@ -17,6 +18,15 @@ class GeometryPosition extends GeometryObject {
 	 */
 	constructor(...coordinates) {
 		super();
+
+		const invalid = coordinates.filter(
+			(geo) =>
+				!(geo instanceof GeometryPosition || typeof geo === 'number')
+		);
+
+		if (invalid.length) {
+			throw new GeometryTypeError('Invalid coordinate types', invalid);
+		}
 
 		storage.set(this, { coordinates });
 	}
@@ -41,7 +51,9 @@ class GeometryPosition extends GeometryObject {
 	 */
 	toBSON() {
 		const { type, coordinates: items } = this;
-		const coordinates = items.map((item) => item.toBSON().coordinates);
+		const coordinates = items.map((item) =>
+			item instanceof GeometryPosition ? item.toBSON().coordinates : item
+		);
 
 		return { type, coordinates };
 	}
@@ -54,7 +66,9 @@ class GeometryPosition extends GeometryObject {
 	 */
 	toJSON() {
 		const { type, coordinates: items } = this;
-		const coordinates = items.map((item) => item.toJSON());
+		const coordinates = items.map((item) =>
+			item instanceof GeometryPosition ? item.toJSON() : item
+		);
 
 		return { type, coordinates };
 	}
