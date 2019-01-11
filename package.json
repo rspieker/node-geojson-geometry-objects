@@ -13,8 +13,14 @@
 		"type": "git",
 		"url": "git+https://github.com/rspieker/node-geojson-geometry-objects.git"
 	},
-	"keywords": [],
-	"author": "",
+	"keywords": [
+		"geojson",
+		"geo",
+		"geometry",
+		"latitude",
+		"longitude"
+	],
+	"author": "Rogier Spieker <rogier+npm@konfirm.eu>",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/rspieker/node-geojson-geometry-objects/issues"
