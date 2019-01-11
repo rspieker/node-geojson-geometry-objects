@@ -10,7 +10,7 @@ const GeometryLineString = require('./LineString.js');
  */
 class LinearRing extends GeometryLineString {
 	/**
-	 * Obtain the type (used by mapping not represented in as GeoJSON, JSON
+	 * Obtain the type (used by rules not represented in as GeoJSON, JSON
 	 * or BSON type)
 	 *
 	 * @readonly
@@ -29,7 +29,7 @@ class LinearRing extends GeometryLineString {
 	 * @static
 	 * @memberof LinearRing
 	 */
-	static get mapping() {
+	static get rules() {
 		const compare = (list) => {
 			const { coordinates: first } = GeometryPoint.from(list[0]);
 			const { coordinates: last } = GeometryPoint.from(

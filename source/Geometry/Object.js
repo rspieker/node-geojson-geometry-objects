@@ -36,12 +36,12 @@ class GeometryObject {
 	 * @static
 	 * @memberof GeometryObject
 	 */
-	static get mapping() {
+	static get rules() {
 		return [];
 	}
 
 	/**
-	 * Validate the provided values (obtained from .mapping) and determine
+	 * Validate the provided values (obtained from .rules) and determine
 	 * wether or not the value matches the Geometry object conditions
 	 *
 	 * @static
@@ -51,7 +51,7 @@ class GeometryObject {
 	 */
 	static valid(value) {
 		const valid =
-			this.mapping.filter((map) => map.validate(value)).length > 0;
+			this.rules.filter((map) => map.validate(value)).length > 0;
 
 		return valid;
 	}
@@ -67,7 +67,7 @@ class GeometryObject {
 	 * @memberof GeometryObject
 	 */
 	static from(value) {
-		const factory = this.mapping
+		const factory = this.rules
 			.filter((map) => map.validate(value))
 			.map((map) => map.factory)
 			.shift();

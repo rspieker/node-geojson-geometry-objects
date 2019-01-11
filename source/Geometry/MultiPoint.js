@@ -37,8 +37,8 @@ class GeometryMultiPoint extends GeometryPosition {
 	 * @static
 	 * @memberof GeometryMultiPoint
 	 */
-	static get mapping() {
-		return super.mapping.concat([
+	static get rules() {
+		return super.rules.concat([
 			{
 				validate: (value) =>
 					value &&

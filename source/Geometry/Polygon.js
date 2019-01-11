@@ -37,8 +37,8 @@ class GeometryPolygon extends GeometryPosition {
 	 * @static
 	 * @memberof GeometryPolygon
 	 */
-	static get mapping() {
-		return super.mapping.concat([
+	static get rules() {
+		return super.rules.concat([
 			{
 				validate: (value) =>
 					value &&

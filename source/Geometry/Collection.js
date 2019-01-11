@@ -87,8 +87,8 @@ class GeometryCollection extends GeometryPosition {
 	 * @static
 	 * @memberof GeometryCollection
 	 */
-	static get mapping() {
-		return super.mapping.concat([
+	static get rules() {
+		return super.rules.concat([
 			{
 				validate: (value) =>
 					value &&

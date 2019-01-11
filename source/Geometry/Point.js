@@ -102,8 +102,8 @@ class GeometryPoint extends GeometryPosition {
 	 * @static
 	 * @memberof GeometryPoint
 	 */
-	static get mapping() {
-		return super.mapping.concat([
+	static get rules() {
+		return super.rules.concat([
 			{
 				validate: (value) =>
 					value &&
