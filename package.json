@@ -2,7 +2,7 @@
 	"name": "geojson-geometry-objects",
 	"version": "1.0.0-beta.0",
 	"description": "GeoJSON Geometry Objects, easily turn into BSON/JSON representation",
-	"main": "index.js",
+	"main": "source/index.js",
 	"directories": {
 		"test": "test"
 	},
