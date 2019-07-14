@@ -27,6 +27,6 @@
 	},
 	"homepage": "https://github.com/rspieker/node-geojson-geometry-objects#readme",
 	"devDependencies": {
-		"@konfirm/labrat": "^2.0.0"
+		"@konfirm/labrat": "^2.0.1"
 	}
 }
