@@ -1,6 +1,6 @@
 {
 	"name": "geojson-geometry-objects",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "GeoJSON Geometry Objects, easily turn into BSON/JSON representation",
 	"main": "source/index.js",
 	"directories": {
