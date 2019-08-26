@@ -7,7 +7,7 @@
 		"test": "test"
 	},
 	"scripts": {
-		"test": "./node_modules/.bin/lab -vclr"
+		"test": "lab -vclr"
 	},
 	"repository": {
 		"type": "git",
@@ -27,6 +27,6 @@
 	},
 	"homepage": "https://github.com/rspieker/node-geojson-geometry-objects#readme",
 	"devDependencies": {
-		"@konfirm/labrat": "^2.0.2"
+		"@konfirm/labrat": "^2.0.1"
 	}
 }
