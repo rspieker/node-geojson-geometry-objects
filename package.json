@@ -1,32 +1,35 @@
 {
-	"name": "geojson-geometry-objects",
-	"version": "1.0.7",
-	"description": "GeoJSON Geometry Objects, easily turn into BSON/JSON representation",
-	"main": "source/index.js",
-	"directories": {
-		"test": "test"
-	},
-	"scripts": {
-		"test": "lab -vclr"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/rspieker/node-geojson-geometry-objects.git"
-	},
-	"keywords": [
-		"geojson",
-		"geo",
-		"geometry",
-		"latitude",
-		"longitude"
-	],
-	"author": "Rogier Spieker <rogier+npm@konfirm.eu>",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/rspieker/node-geojson-geometry-objects/issues"
-	},
-	"homepage": "https://github.com/rspieker/node-geojson-geometry-objects#readme",
-	"devDependencies": {
-		"@konfirm/labrat": "^2.0.1"
-	}
+  "name": "geojson-geometry-objects",
+  "version": "1.0.7",
+  "description": "GeoJSON Geometry Objects, easily turn into BSON/JSON representation",
+  "main": "source/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "lab -vclr"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rspieker/node-geojson-geometry-objects.git"
+  },
+  "keywords": [
+    "geojson",
+    "geo",
+    "geometry",
+    "latitude",
+    "longitude"
+  ],
+  "author": "Rogier Spieker <rogier+npm@konfirm.eu>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rspieker/node-geojson-geometry-objects/issues"
+  },
+  "homepage": "https://github.com/rspieker/node-geojson-geometry-objects#readme",
+  "engines": {
+    "node": ">=8"
+  },
+  "devDependencies": {
+    "@konfirm/labrat": "^2.0.1"
+  }
 }
